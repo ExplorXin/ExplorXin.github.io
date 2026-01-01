@@ -20,16 +20,16 @@
   <title>Git清空历史 - StarX</title>
 
   
-    <meta name="description" content="如何彻底清空 Git 提交历史并重新开始？在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇文章介绍四种方法来彻底清空 Git 提交历史，包括删除 .git 目录、创建无历史分支、使用 git filter-repo 以及手动迁移代码。你可以根据项目需求选择最合适的方式。 1. 删除 .git 目录并重新初始化（最干净的方法）如果你想彻底清空所有 Git 记录并从头开">
+    <meta name="description" content="如何彻底清空 Git 提交历史并重新开始？在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇介绍四种方法彻底清空 Git 提交历史，包括删除 .git 目录、创建无历史分支、使用 git filter-repo 以及手动迁移代码。可以根据项目需求选择最合适的方式。 1. 删除 .git 目录并重新初始化（最干净的方法）如果你想彻底清空所有 Git 记录并从头开始，最简">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git清空历史">
 <meta property="og:url" content="http://example.com/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/">
 <meta property="og:site_name" content="StarX">
-<meta property="og:description" content="如何彻底清空 Git 提交历史并重新开始？在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇文章介绍四种方法来彻底清空 Git 提交历史，包括删除 .git 目录、创建无历史分支、使用 git filter-repo 以及手动迁移代码。你可以根据项目需求选择最合适的方式。 1. 删除 .git 目录并重新初始化（最干净的方法）如果你想彻底清空所有 Git 记录并从头开">
+<meta property="og:description" content="如何彻底清空 Git 提交历史并重新开始？在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇介绍四种方法彻底清空 Git 提交历史，包括删除 .git 目录、创建无历史分支、使用 git filter-repo 以及手动迁移代码。可以根据项目需求选择最合适的方式。 1. 删除 .git 目录并重新初始化（最干净的方法）如果你想彻底清空所有 Git 记录并从头开始，最简">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg">
 <meta property="article:published_time" content="2025-12-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-01T03:38:08.871Z">
+<meta property="article:modified_time" content="2026-01-01T14:16:19.702Z">
 <meta property="article:author" content="Xin">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="配置">
@@ -52,7 +52,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Xin","sameAs":[],"image":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg"},"dateCreated":"2025-12-31T00:00:00+08:00","dateModified":"2026-01-01T11:38:08+08:00","datePublished":"2025-12-31T00:00:00+08:00","description":"","headline":"Git清空历史","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/"},"publisher":{"@type":"Organization","name":"Xin","sameAs":[],"image":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg","logo":{"@type":"ImageObject","url":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg"}},"url":"http://example.com/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/","keywords":"配置, git","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Xin","sameAs":[],"image":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg"},"dateCreated":"2025-12-31T00:00:00+08:00","dateModified":"2026-01-01T22:16:19+08:00","datePublished":"2025-12-31T00:00:00+08:00","description":"","headline":"Git清空历史","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/"},"publisher":{"@type":"Organization","name":"Xin","sameAs":[],"image":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg","logo":{"@type":"ImageObject","url":"https://pic1.imgdb.cn/item/6637740a0ea9cb140337c17d.jpg"}},"url":"http://example.com/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/","keywords":"配置, git","image":[]}</script>
   <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lywkpmydb/dist/LXGWWenKaiScreen/result.css' /><link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css' />
 </head>
 <body>
@@ -71,7 +71,7 @@
 
 
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2026/01/01/Home/"><span class="title">我的主页</span></a><a class="item title" href="/2025/01/01/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E8%8D%89%E7%A8%BF/"><span class="title">这是一篇草稿</span></a><a class="item title" href="/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/"><span class="title">Git清空历史</span></a><a class="item title" href="/2026/01/01/hello-world/"><span class="title">Hello World</span></a></div></widget>
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2025/12/31/git%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2/"><span class="title">Git清空历史</span></a><a class="item title" href="/2026/01/01/Home/"><span class="title">我的主页</span></a><a class="item title" href="/2025/01/01/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E8%8D%89%E7%A8%BF/"><span class="title">这是一篇草稿</span></a><a class="item title" href="/2026/01/01/hello-world/"><span class="title">Hello World</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ExplorXin" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://simpleicons.org/icons/github.svg"/></a><a class="social" href="https://space.bilibili.com/385656728" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://simpleicons.org/icons/bilibili.svg"/></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -84,7 +84,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AF%B4%E6%98%8E/">说明</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-12-30T16:00:00.000Z">2025-12-31</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-01T03:38:08.871Z">2026-01-01</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-12-30T16:00:00.000Z">2025-12-31</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-01T14:16:19.702Z">2026-01-01</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -95,7 +95,7 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="如何彻底清空-Git-提交历史并重新开始？"><a href="#如何彻底清空-Git-提交历史并重新开始？" class="headerlink" title="如何彻底清空 Git 提交历史并重新开始？"></a>如何彻底清空 Git 提交历史并重新开始？</h1><p>在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇文章介绍四种方法来彻底清空 Git 提交历史，包括删除 <code>.git</code> 目录、创建无历史分支、使用 <code>git filter-repo</code> 以及手动迁移代码。你可以根据项目需求选择最合适的方式。</p>
+  </div><article class="md-text content"><h1 id="如何彻底清空-Git-提交历史并重新开始？"><a href="#如何彻底清空-Git-提交历史并重新开始？" class="headerlink" title="如何彻底清空 Git 提交历史并重新开始？"></a>如何彻底清空 Git 提交历史并重新开始？</h1><p>在长期维护的 Git 项目中，提交记录可能会变得杂乱无章，影响性能和可读性。本篇介绍四种方法彻底清空 Git 提交历史，包括删除 <code>.git</code> 目录、创建无历史分支、使用 <code>git filter-repo</code> 以及手动迁移代码。可以根据项目需求选择最合适的方式。</p>
 <h2 id="1-删除-git-目录并重新初始化（最干净的方法）"><a href="#1-删除-git-目录并重新初始化（最干净的方法）" class="headerlink" title="1. 删除 .git 目录并重新初始化（最干净的方法）"></a>1. 删除 <code>.git</code> 目录并重新初始化（最干净的方法）</h2><p>如果你想彻底清空所有 Git 记录并从头开始，最简单的方法就是直接删除 <code>.git</code> 目录并重新初始化仓库：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf .git  <span class="comment"># 删除 Git 目录</span></span><br><span class="line">git init     <span class="comment"># 重新初始化 Git 仓库</span></span><br><span class="line">git add .    <span class="comment"># 添加所有文件</span></span><br><span class="line">git commit -m <span class="string">&quot;Initial commit&quot;</span>  <span class="comment"># 创建新的提交</span></span><br></pre></td></tr></table></figure>
 
@@ -203,7 +203,7 @@
 <td>✅ 需要</td>
 </tr>
 </tbody></table>
-<p>如果你只是想让提交记录清零，同时保留远程仓库，<strong>方法 2（<code>--orphan</code>）</strong> 是比较推荐的。如果你完全不在乎历史，**方法 1（删除 <code>.git</code>）**最直接。</p>
+<p>如果你只是想让提交记录清零，同时保留远程仓库，<strong>方法 2（<code>--orphan</code>）</strong> 是比较推荐的。如果你完全不在乎历史，<strong>方法 1（删除 <code>.git</code>）</strong> 最直接。</p>
 </article>
 
 
