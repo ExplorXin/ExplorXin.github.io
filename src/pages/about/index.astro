@@ -1,0 +1,57 @@
+---
+import { Timeline } from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+
+const headings = [
+  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
+  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
+  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+]
+---
+
+<PageLayout title='About' {headings} comment>
+  <p>Mathematics / Student</p>
+  <p>
+    你好，旅行者！
+  </p>
+
+  {/* hobbies */}
+  <h2 id='hobbies'>Hobbies</h2>
+  <ul>
+    <li>Explore</li>
+    <li>Chase</li>
+  </ul>
+
+  {/* social-networks */}
+  <h2 id='social-networks'>Social Networks</h2>
+  <ul>
+    <li>
+      GitHub: <a href='https://github.com/ExplorXin' target='_blank'>ExplorXin</a>
+    </li>
+    <li>
+      Steam: <a href='https://steamcommunity.com/id/cworld' target='_blank'>cworld</a>
+    </li>
+  </ul>
+
+  {/* about-blog */}
+  <h2 id='about-blog'>About Blog</h2>
+  <p>Website history:</p>
+  <Timeline
+    events={[
+      {
+        date: '2026-05-29',
+        content:
+          '使用 <a href="https://astro.build/" target="_blank">Astro</a> 与 <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+      },
+      {
+        date: '2025-12-31',
+        content:
+          '利用Hexo框架搭建并发布在 <a href="https://explorxin.github.io/"target="_blank">Github</a>'
+      },
+      {
+        date: '2025-05-23',
+        content: '初次尝试搭建博客'
+      }
+    ]}
+  />
+</PageLayout>
