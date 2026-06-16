@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,10 +25,16 @@ jobs:
         run: npm run build
 
       - name: Deploy to public repo
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: ExplorXin/ExplorXin.github.io
-          publish_branch: main
-          publish_dir: ./dist
-          commit_message: 'Site updated [skip ci]'
+        env:
+          TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          cd dist
+          touch .nojekyll
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b main
+          git add -A
+          git commit -m "Site updated"
+          git remote add origin "https://oauth2:${TOKEN}@github.com/ExplorXin/ExplorXin.github.io.git"
+          git push -f origin main
