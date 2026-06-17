@@ -139,10 +139,11 @@
 
   /* Language */
   & .language {
-    transition: opacity 0.3s;
+    transition: opacity 0s;
     position: absolute;
     top: 0.75rem;
-    right: 0;
+    right: 0.75rem;
+    z-index: 1;
   }
 
   /* Copy */
@@ -152,9 +153,10 @@
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
+    z-index: 2;
     user-select: none;
     & .success::before {
-      content: 'Copied!';
+      content: 'Copied';
       position: absolute;
       right: 100%;
       top: 0;
@@ -167,8 +169,11 @@
       margin-right: 0.5rem;
       border-radius: 0.25rem;
       color: hsl(var(--muted-foreground) / var(--un-text-opacity, 1));
-      background-color: hsl(var(--card) / var(--un-bg-opacity, 1));
+      background-color: hsl(var(--primary-foreground) / var(--un-bg-opacity, 1));
       border: 1px solid hsl(var(--border) / var(--un-border-opacity, 1));
+    }
+    &:hover {
+      opacity: 1;
     }
     &.copied {
       & .success {
@@ -179,14 +184,8 @@
       }
     }
   }
-  &:hover,
-  &:focus-within {
-    & button.copy {
-      opacity: 1;
-    }
-    & .language {
-      opacity: 0;
-    }
+  &:has(button.copy:hover) .language {
+    opacity: 0;
   }
 
   /* Highlighted & diffs */

@@ -87,13 +87,14 @@ export const addLanguage = (): ShikiTransformer => {
 // Add a copy button to the code block
 export const addCopyButton = (timeout?: number): ShikiTransformer => {
   const toggleMs = timeout || 2000
+
   return {
     name: 'shiki-transformer-copy-button',
     pre(node) {
       const button = h(
         'button',
         {
-          class: 'copy text-muted-foreground p-1 box-content border rounded-lg bg-card',
+          class: 'copy text-muted-foreground p-1 box-content border rounded bg-primary-foreground',
           'aria-label': 'Copy code',
           'data-code': this.source,
           onclick: `
@@ -104,23 +105,40 @@ export const addCopyButton = (timeout?: number): ShikiTransformer => {
         },
         [
           h('div', { class: 'ready' }, [
-            h('svg', { class: 'size-5' }, [
-              h('use', { href: '/icons/code.svg#mingcute-clipboard-line' })
-            ])
+            h(
+              'svg',
+              {
+                class: 'size-5'
+              },
+              [
+                h('use', {
+                  href: '/icons/code.svg#mingcute-clipboard-line'
+                })
+              ]
+            )
           ]),
           h('div', { class: 'success hidden' }, [
-            h('svg', { class: 'size-5' }, [
-              h('use', { href: '/icons/code.svg#mingcute-file-check-line' })
-            ])
+            h(
+              'svg',
+              {
+                class: 'size-5'
+              },
+              [
+                h('use', {
+                  href: '/icons/code.svg#mingcute-file-check-line'
+                })
+              ]
+            )
           ])
         ]
       )
+
       node.children.push(button)
     }
   }
 }
 
-// Add a copy button to the code block
+// Add a collapse toggle to the code block
 export const addCollapse = (displayLineCount?: number): ShikiTransformer => {
   const line = displayLineCount || 15
   return {
