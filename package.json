@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "check": "astro check",
-    "clean": "rm -rf .astro dist"
+    "clean": "rm -rf .astro dist",
+    "postinstall": "cp packages/pure/components/pages/PostPreview.astro node_modules/astro-pure/components/pages/PostPreview.astro && cp packages/pure/components/pages/ArticleBottom.astro node_modules/astro-pure/components/pages/ArticleBottom.astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
