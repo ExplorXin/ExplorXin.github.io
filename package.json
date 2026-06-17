@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "sync:astro-pure": "node scripts/sync-astro-pure.mjs",
+    "prebuild": "npm run sync:astro-pure",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "check": "astro check",
     "clean": "rm -rf .astro dist",
-    "postinstall": "cp packages/pure/components/pages/PostPreview.astro node_modules/astro-pure/components/pages/PostPreview.astro && cp packages/pure/components/pages/ArticleBottom.astro node_modules/astro-pure/components/pages/ArticleBottom.astro"
+    "postinstall": "npm run sync:astro-pure"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
