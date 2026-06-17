@@ -1,7 +1,7 @@
 ---
 import { Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-
+import Substats from '@/components/about/Substats.astro'
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
   { depth: 2, slug: 'social-networks', text: 'Social Networks' },
@@ -10,10 +10,8 @@ const headings = [
 ---
 
 <PageLayout title='About' {headings} comment>
-  <p>Mathematics / Student</p>
-  <p>
-    你好，旅行者！
-  </p>
+  <p>Student / Mathematics</p>
+  <p> 你好，旅行者！</p>
 
   {/* hobbies */}
   <h2 id='hobbies'>Hobbies</h2>
@@ -22,34 +20,65 @@ const headings = [
     <li>Chase</li>
   </ul>
 
+
   {/* social-networks */}
   <h2 id='social-networks'>Social Networks</h2>
-  <ul>
-    <li>
-      GitHub: <a href='https://github.com/ExplorXin' target='_blank'>ExplorXin</a>
-    </li>
-    <li>
-      Steam: <a href='https://steamcommunity.com/id/cworld' target='_blank'>cworld</a>
-    </li>
-  </ul>
+  <p>你可以在以下平台找到我：</p>
+  <Substats
+    stats={[
+      {
+        platform: 'GitHub',
+        icon: 'github',
+        link: 'https://github.com/ExplorXin',
+        text: 'followers',
+        api: 'github/explorxin'
+      },
+      {
+        platform: 'Bilibili',
+        icon: 'bilibili',
+        color: '#fe7398',
+        link: 'https://space.bilibili.com/385656728',
+        text: 'followers',
+        count: 999
+      },
+      // {
+      //   platform: 'Zhihu',
+      //   icon: 'zhihu',
+      //   color: '#0084ff',
+      //   link: 'https://www.zhihu.com/people/xin-86-52-31',
+      //   text: 'followers',
+      //   count: 356
+      // },
+      // {
+      //   platform: 'Steam',
+      //   icon: 'steam',
+      //   color: '#50769d',
+      //   link: 'https://steamcommunity.com/profiles/76561199366612260/',
+      //   text: 'games',
+      //   count: 1
+      // }
+    ]}
+  />
+
+
 
   {/* about-blog */}
   <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <p>站点历史:</p>
   <Timeline
     events={[
       {
         date: '2026-05-29',
         content:
-          '使用 <a href="https://astro.build/" target="_blank">Astro</a> 与 <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+          '使用 <a href="https://astro.build/" target="_blank">Astro</a> 与 <a href="https://github.com/cworld1/astro-theme-pure" target="_blank">Astro Theme Pure</a>'
       },
       {
         date: '2025-12-31',
         content:
-          '利用Hexo框架搭建并发布在 <a href="https://explorxin.github.io/"target="_blank">Github</a>'
+          '利用 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> 框架搭建并发布在 <a href="https://explorxin.github.io/"target="_blank">Github Pages</a>'
       },
       {
-        date: '2025-05-23',
+        date: '2025-03-23',
         content: '初次尝试搭建博客'
       }
     ]}

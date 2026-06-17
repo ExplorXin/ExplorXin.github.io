@@ -3,15 +3,18 @@ import { type CollectionEntry, render } from 'astro:content'
 
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import PostLayout from '@/layouts/BlogPost.astro'
+import { getPostDir, getPostId } from '@/utils/post-url'
 
 export const prerender = true
 
 export async function getStaticPaths() {
   const posts = sortMDByDate(await getBlogCollection())
-  return posts.map((post) => ({
-    params: { id: post.id },
-    props: { post, posts }
-  }))
+  return posts
+    .filter((post) => getPostDir(post) !== undefined)
+    .map((post) => ({
+      params: { dir: getPostDir(post)!, id: getPostId(post) },
+      props: { post, posts }
+    }))
 }
 
 type Props = {

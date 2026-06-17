@@ -15,6 +15,17 @@ const { post, detailed = false, class: className } = Astro.props
 const { id, data } = post
 const { remarkPluginFrontmatter } = await render(post)
 const postDate = data.updatedDate ?? data.publishDate
+
+const blogIndexFiles = import.meta.glob('/src/content/blog/*/index.{md,mdx}')
+const indexPostDirs: string[] = Object.keys(blogIndexFiles)
+  .map((key) => { const m = key.match(/\/src\/content\/blog\/([^/]+)\/index\.(md|mdx)$/); return m ? m[1] : null })
+  .filter(Boolean) as string[]
+function getPostUrl(id: string, dataId: string | undefined) {
+  const idx = id.lastIndexOf('/')
+  if (idx !== -1) return `/blog/${id.slice(0, idx)}/${dataId || id.slice(idx + 1)}`
+  if (indexPostDirs.includes(id)) return `/blog/${id}/${dataId || id}`
+  return `/blog/${dataId || id}`
+}
 ---
 
 <li
@@ -30,7 +41,7 @@ const postDate = data.updatedDate ?? data.publishDate
       detailed && 'max-sm:px-4 sm:py-5',
       detailed && data.heroImage && 'max-md:pt-24'
     )}
-    href={`/blog/${id}`}
+    href={getPostUrl(post.id, post.data.id)}
     data-astro-prefetch
   >
     {

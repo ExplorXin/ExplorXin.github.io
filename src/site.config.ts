@@ -92,7 +92,7 @@ export const integ: IntegrationUserConfig = {
   links: {
     // Friend logbook
     logbook: [
-      { date: '2026-05-29', content: '博客重新启航, 使用 Astro Pure 主题.' }
+      { date: '2026-05-29', content: '博客重新启航.' }
     ],
     // Yourself link info
     applyTip: [
