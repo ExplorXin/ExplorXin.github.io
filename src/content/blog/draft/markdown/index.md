@@ -1,12 +1,14 @@
 ---
 id: a9162a
 title: Markdown Syntax Support
-publishDate: 2023-07-26 08:00:00
+publishDate: 2023-06-03 08:00:00
+updatedDate: 'June 03, 2025'
 description: 'Markdown is a lightweight markup language.'
 tags:
   - Markdown
-heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
 language: 'English'
+heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
+draft: true
 ---
 
 ## Basic Syntax
@@ -120,6 +122,15 @@ Currently using KaTeX as the math formula plugin. For supported syntax, refer to
 Preview:
 
 ![CWorld](https://gravatar.loli.net/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
+
+
+```markdown
+![fig_md](./md-fig.png)
+```
+
+Preview:
+
+![fig_md](./md-fig.png)
 
 #### Strikethrough
 

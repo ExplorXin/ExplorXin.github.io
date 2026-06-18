@@ -1,8 +1,8 @@
 ---
 id: 75f972
 title: 1 强化学习概述
-publishDate: 2026-01-03
-updatedDate: 2026-01-03
+publishDate: 2026-01-01
+updatedDate: 2026-01-02
 tags:
   - 强化学习
 description: 强化学习概述 - 基本概念、原理与分类

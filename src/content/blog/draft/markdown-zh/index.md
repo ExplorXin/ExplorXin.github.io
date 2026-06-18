@@ -1,12 +1,14 @@
 ---
 id: 2bc49f
 title: Markdown 语法支持
-publishDate: 2023-07-26 08:00:00
+publishDate: 2023-06-02 08:00:00
+updatedDate: 'June 02, 2025'
 description: 'Markdown 是一种轻量级的「标记语言」。'
 tags:
   - Markdown
 heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
 language: '中文'
+draft: true
 ---
 
 ## 基本语法
