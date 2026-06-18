@@ -14,7 +14,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
 <PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
   <main class='flex w-full flex-col items-center'>
-    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7 md:w-4/5 lg:w-5/6' id='content-header'>
       <img
         src={config.logo.src}
         alt={config.logo.alt || 'Profile'}
@@ -42,7 +42,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
 
 
-    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+    <div id='content' class='animate flex flex-col gap-y-10 w-[85%]'>
       <Section title='About'>
         <p class='text-muted-foreground'>Student / Mathematics </p>
         <p class='text-muted-foreground'>
