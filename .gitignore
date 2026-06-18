@@ -31,3 +31,16 @@ public/pagefind
 
 # docker compose
 compose.override.yaml
+
+
+#忽略Obsidian
+.obsidian/
+.trash/
+
+.opencode/
+.claude/
+.claudian/
+.claude-plugin/
+
+
+Source/
